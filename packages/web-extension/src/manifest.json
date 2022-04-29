@@ -1,19 +1,21 @@
 {
   "name": "{package_name}",
   "version": "{package_version}",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "{package_description}",
   "author": "{package_author}",
-  "permissions": [
+  "host_permissions": [
     "activeTab",
     "storage",
     "https://*.carbondesignsystem.com/*"
   ],
   "background": {
-    "scripts": ["/background/index.js"],
-    "persistent": false
+    "service_worker": "/background/index.js"
   },
-  "web_accessible_resources": ["/inject/index.css"],
+  "web_accessible_resources": [{
+    	"resources": [ "/inject/index.css" ],
+      "matches": ["<all_urls>"]
+  }],
   "icons": {
     "16": "/media/16x16-mid.png",
     "32": "/media/32x32-mid.png",
