@@ -123,7 +123,7 @@ function Popup() {
       <header className={`${prefix}--popup__header`}>
         <div className={`${prefix}--col-sm-3`}>
           <h1 className={`${prefix}--popup__heading`}>
-            Carbon Devtools
+            MSK Devtools
             {experimentalFlag(() => (
               <Tag
                 type="magenta"
