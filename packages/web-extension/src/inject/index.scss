@@ -1,8 +1,14 @@
-/* stylelint-disable no-invalid-position-at-import-rule */
-
 $prefix: 'bx-dev';
 $carbonPrefix: 'bx';
 $zindex: 9999999999;
+$css--reset: false;
+$css--default-type: false;
+$css--font-face: false;
+$css--helpers: false;
+$css--body: false;
+$css--use-layer: false;
+$css--typography: false;
+$css--plex: false;
 
 $feature-flags: (
   enable-css-custom-properties: true,
@@ -21,9 +27,6 @@ $feature-flags: (
 @import '@carbon/themes/scss/themes';
 @import '@carbon/motion/scss/motion';
 @import 'carbon-components/src/globals/scss/motion';
-
-@include carbon--type-reset();
-@include carbon--font-face-mono();
 
 $transition-in: $duration--moderate-02 carbon--motion(standard, productive);
 $transition-fade: $duration--fast-02 carbon--motion(standard, productive);
