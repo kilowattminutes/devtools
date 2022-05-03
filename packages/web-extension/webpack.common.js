@@ -103,13 +103,13 @@ module.exports = {
       chunkFilename: '[id]/index.css',
     }),
     new HtmlWebpackPlugin({
-      title: 'Options – Carbon Devtools',
+      title: 'Options – MSK Devtools',
       chunks: ['options'],
       filename: 'options/index.html',
       cache: false,
     }),
     new HtmlWebpackPlugin({
-      title: 'Popup – Carbon Devtools',
+      title: 'Popup – MSK Devtools',
       chunks: ['popup'],
       filename: 'popup/index.html',
       cache: false,
