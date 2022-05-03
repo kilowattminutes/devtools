@@ -16,7 +16,7 @@ import {
   gaConfigurationEvent,
 } from '@carbon/devtools-utilities/src/ga';
 import { defaults } from '../../../globals/defaults';
-import { Inventory, Specs, Grid, ResizeBrowser, PageInfo } from '../';
+import { Inventory, Specs, Grid, PageInfo } from '../';
 // import * as Panels from '../';
 
 const { prefix } = settings;
@@ -83,7 +83,6 @@ function Main({ initialMsg, _inventoryData, _panelControls }) {
   return (
     <>
       {nonCarbonReminder(nonCarbon)}
-      <ResizeBrowser windowWidth={initialMsg.windowWidth} />
       <Accordion className={`${prefix}--popup-main`}>
         {experimentalFlag(() => (
           <AccordionItem
