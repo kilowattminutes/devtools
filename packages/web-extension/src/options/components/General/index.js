@@ -13,7 +13,6 @@ const { prefix } = settings;
 const themeList = Object.keys(themes);
 
 function General({
-  generalExperimental,
   generalNonCarbon,
   generalTheme = defaults.generalSettings.theme,
 }) {
@@ -32,20 +31,6 @@ function General({
                 generalNonCarbon: e.target.checked,
               });
               setStorage({ generalNonCarbonClear: false });
-            }}
-          />
-        </div>
-        <div className={`${prefix}--col-sm-2`}>
-          <Toggle
-            size="sm"
-            labelText="Experimental features"
-            className={`${prefix}--options__experimental`}
-            id="experimental"
-            toggled={generalExperimental}
-            onChange={(e) => {
-              configuration('general-experimental', {
-                generalExperimental: e.target.checked,
-              });
             }}
           />
         </div>
@@ -81,7 +66,6 @@ function General({
 }
 
 General.propTypes = {
-  generalExperimental: PropTypes.bool,
   generalNonCarbon: PropTypes.bool,
   generalTheme: PropTypes.string,
 };
