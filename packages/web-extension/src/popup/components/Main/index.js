@@ -16,7 +16,7 @@ import {
   gaConfigurationEvent,
 } from '@carbon/devtools-utilities/src/ga';
 import { defaults } from '../../../globals/defaults';
-import { Inventory, Specs, Grid, PageInfo } from '../';
+import { Inventory, Grid, PageInfo } from '../';
 // import * as Panels from '../';
 
 const { prefix } = settings;
@@ -33,9 +33,8 @@ function Main({ initialMsg, _inventoryData, _panelControls }) {
   //     groups['Page info'] = ComingSoon;
   // });
 
-  groups['Component list'] = Inventory;
-  groups['Specs'] = Specs;
   groups['Grid overlay'] = Grid;
+  groups['Component list'] = Inventory;
 
   const groupsList = Object.keys(groups);
 
