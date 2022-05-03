@@ -39,9 +39,9 @@ defaults.specs = {
 defaults.gridVersion = Object.keys(gridVersions)[0];
 
 defaults.generalSettings = {
-  theme: 'g90',
+  theme: 'white',
   experimental: false,
-  nonCarbon: false,
+  nonCarbon: true,
 };
 
 defaults.ga = {
