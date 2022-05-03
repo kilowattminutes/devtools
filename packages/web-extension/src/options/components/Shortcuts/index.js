@@ -12,6 +12,13 @@ import Cursor_1 from '@carbon/icons/svg/32/cursor--1.svg';
 
 const { prefix } = settings;
 
+let optionKey;
+if (navigator && navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
+  optionKey = 'Option';
+} else {
+  optionKey = 'Alt';
+}
+
 function Shortcuts() {
   const shortcuts = [
     'Toggle everything',
@@ -34,6 +41,18 @@ function Shortcuts() {
           </StructuredListRow>
         </StructuredListHead>
         <StructuredListBody>
+          <StructuredListRow>
+            <StructuredListCell>Toggle grid</StructuredListCell>
+            <StructuredListCell
+              className={`${prefix}--options-shortcuts__keys`}
+            >
+              <span className={`${prefix}--options-shortcuts__key`}>
+                {optionKey}
+              </span>
+              <span className={`${prefix}--options-shortcuts__key`}>g</span>
+            </StructuredListCell>
+          </StructuredListRow>
+
           {shortcuts.map((description, i) => {
             return (
               <StructuredListRow key={i}>
