@@ -6,9 +6,7 @@
   "author": "{package_author}",
   "permissions": [
     "activeTab",
-    "storage",
-    "https://*.mybluemix.net/*",
-    "https://*.carbondesignsystem.com/*"
+    "storage"
   ],
   "background": {
     "scripts": ["/background/index.js"],
