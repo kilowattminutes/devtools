@@ -6,48 +6,38 @@ import RadioButton from 'carbon-components-react/es/components/RadioButton';
 import { setStorage } from '@carbon/devtools-utilities/src/setStorage';
 import { getStorage } from '@carbon/devtools-utilities/src/getStorage';
 //import { gaConfigurationEvent } from '@carbon/devtools-utilities/src/ga';
-import { gridVersions } from '../../../globals/options';
 import { defaults } from '../../../globals/defaults';
 
 //const { prefix } = settings;
 
 function Grid() {
-  const [toggleGrids, setToggleGrids] = useState(defaults.grid);
-  const [setGridVersionTitle] = useState(
-    gridVersions[Object.keys(gridVersions)[0]]
-  );
+  const [toggleGridStyle, setToggleGridStyle] = useState(defaults.gridStyle);
   const [onLoad, setOnLoad] = useState(false);
 
   useEffect(() => {
     // get storage and set defaults
-    const dataKey = 'toggleGrids';
+    const dataKey = 'toggleGridStyle';
     getStorage([dataKey], (dataReceived) => {
       if (dataReceived && dataReceived[dataKey]) {
-        setToggleGrids(dataReceived[dataKey]);
+        setToggleGridStyle(dataReceived[dataKey]);
       }
       setOnLoad(true);
-    });
-
-    // gets and sets the grid version title
-    getStorage(['gridVersion'], ({ gridVersion }) => {
-      if (gridVersion) {
-        setGridVersionTitle(gridVersions[gridVersion]);
-      }
     });
   });
 
   useEffect(() => {
     // update storage
     if (onLoad) {
-      setStorage({ toggleGrids });
+      setStorage({ toggleGridStyle });
     }
   });
 
   return !onLoad ? null : (
     <RadioButtonGroup
-      labelText="Grid version"
+      legendText="Layout"
+      defaultSelected={toggleGridStyle}
       onChange={(val) => {
-        alert(val + ' changed');
+        setToggleGridStyle(val);
       }}
     >
       <RadioButton labelText="Potato" value="Potato" id="Potato" />

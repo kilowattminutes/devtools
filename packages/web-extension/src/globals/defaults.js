@@ -14,14 +14,10 @@ defaults.popup = {
   },
 };
 
+defaults.gridStyle = 'Potato';
+
 defaults.grid = {
   toggle2xGrid: false,
-  togglePotato: true,
-  toggleBookworm: false,
-  toggleSarge: false,
-  toggleSlink: false,
-  toggleBullseye: false,
-  toggleBuster: false,
 };
 
 defaults.toggle2x = {
