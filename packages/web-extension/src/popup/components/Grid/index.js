@@ -44,7 +44,12 @@ function Grid() {
   });
 
   return !onLoad ? null : (
-    <RadioButtonGroup labelText="Grid version">
+    <RadioButtonGroup
+      labelText="Grid version"
+      onChange={(val) => {
+        alert(val + ' changed');
+      }}
+    >
       <RadioButton labelText="Potato" value="Potato" id="Potato" />
       <RadioButton labelText="Bookworm" value="Bookworm" id="Bookworm" />
       <RadioButton labelText="Sarge" value="Sarge" id="Sarge" />
