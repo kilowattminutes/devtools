@@ -24,7 +24,7 @@ function initGrid() {
     case 'Bookworm':
     case 'Slink':
       gridOptions = {
-        overlayVisible: false,
+        overlayVisible: true,
         maxWidth: 2400,
         controlPosition: 'fixed',
         controlBottom: '0px',
@@ -55,7 +55,7 @@ function initGrid() {
     case 'Bullseye':
     case 'Sarge':
       gridOptions = {
-        overlayVisible: false,
+        overlayVisible: true,
         maxWidth: 1440,
         controlPosition: 'fixed',
         controlBottom: '0px',
