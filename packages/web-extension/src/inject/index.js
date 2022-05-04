@@ -2,7 +2,6 @@ import './index.scss';
 import { sendMessage } from '@carbon/devtools-utilities/src/sendMessage';
 import {
   initGrid,
-  initSpecs,
   initInventory,
   initTooltip,
   initShortcuts,
@@ -13,7 +12,6 @@ import {
 if (!window.carbonDevtoolsInjected) {
   injectHighlights();
   initGrid();
-  initSpecs();
   initTooltip();
   initInventory();
   initShortcuts();
