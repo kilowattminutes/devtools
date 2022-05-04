@@ -4,11 +4,7 @@ import { getStorage } from '@carbon/devtools-utilities/src/getStorage';
 import { gridVersions } from '../../../globals/options';
 import { defaults } from '../../../globals/defaults';
 import { manage2xGrid } from './2x';
-import {
-  manageMiniUnitGrid,
-  showMiniUnitGrid,
-  hideMiniUnitGrid,
-} from './mini-unit';
+import { showMiniUnitGrid, hideMiniUnitGrid } from './mini-unit';
 import { themes } from '@carbon/themes';
 
 const { prefix } = settings;
@@ -55,7 +51,6 @@ function initGrid() {
   // updates if storage changes
   manageGlobals();
   manage2xGrid();
-  manageMiniUnitGrid();
 }
 
 function manageGlobals() {
