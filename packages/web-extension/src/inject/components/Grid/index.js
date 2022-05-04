@@ -3,9 +3,10 @@ import { storageItemChanged } from '@carbon/devtools-utilities/src/storageItemCh
 import { getStorage } from '@carbon/devtools-utilities/src/getStorage';
 import { gridVersions } from '../../../globals/options';
 import { defaults } from '../../../globals/defaults';
-import { manage2xGrid } from './2x';
+//import { manage2xGrid } from './2x';
 import { showMiniUnitGrid, hideMiniUnitGrid } from './mini-unit';
 import { themes } from '@carbon/themes';
+import GridOverlay from 'grid-overlay/dist/grid-overlay.min.js';
 
 const { prefix } = settings;
 const html = document.querySelector('html');
@@ -14,43 +15,40 @@ const themeList = [...Object.keys(themes), 'system'];
 
 let lastTheme = '';
 let lastGridVersion = '';
+let _gridOverlay;
 
 function initGrid() {
-  const body = html.querySelector('body');
-  const devtoolContainerClass = `${prefix}--devtools`;
-  const numOfColumns = 16;
-  const columns = [];
-
-  let gridContainer = body.querySelector(`.${devtoolContainerClass}`);
-
-  html.classList.add(`${prefix}--grid--hide`);
-
-  for (let i = 0; i < numOfColumns; i++) {
-    columns.push(
-      `<div class="${prefix}--col-sm-1 ${prefix}--col-md-1 ${prefix}--col-lg-1"></div>`
-    );
-  }
-
-  const GRID_HTML = `
-        <div class="${prefix}--grid-2x">
-            <div class="${prefix}--grid">
-                <div class="${prefix}--row">
-                    ${columns.join('')}
-                </div>
-            </div>
-        </div>
-        <div class="${prefix}--grid-mini-unit"></div>`;
-
-  if (!gridContainer) {
-    gridContainer = document.createElement('div');
-    gridContainer.classList.add(devtoolContainerClass);
-    gridContainer.innerHTML = GRID_HTML;
-    body.appendChild(gridContainer);
-  }
+  /* eslint-disable */
+  _gridOverlay = new GridOverlay({
+    overlayVisible: false,
+    maxWidth: 1440,
+    controlPosition: 'fixed',
+    controlBottom: '0px',
+    controlRight: '0px',
+    controlOpacity: 0.6,
+    controlPadding: 8,
+    cols: 12,
+    extraLeftRightGutter: 8,
+    gridGutter: 8,
+    adaptive: [
+      {
+        mediaQuery: '(max-width: 700px)',
+        cols: 2,
+        gridGutter: 8,
+        extraLeftRightGutter: 8,
+      },
+      {
+        mediaQuery: '(min-width: 1025px)',
+        cols: 12,
+        gridGutter: 8,
+        extraLeftRightGutter: 48,
+      },
+    ],
+  });
 
   // updates if storage changes
-  manageGlobals();
-  manage2xGrid();
+  //manageGlobals();
+  //manage2xGrid();
 }
 
 function manageGlobals() {
@@ -61,8 +59,8 @@ function manageGlobals() {
   );
   storageItemChanged('globalToggleStates', manageGlobalToggle);
 
-  getStorage('toggleGrids', ({ toggleGrids }) => manageGrids(toggleGrids));
-  storageItemChanged('toggleGrids', manageGrids);
+  //getStorage('toggleGrids', ({ toggleGrids }) => manageGrids(toggleGrids));
+  //storageItemChanged('toggleGrids', manageGrids);
 
   getStorage('generalTheme', ({ generalTheme }) =>
     manageGeneralTheme(generalTheme)

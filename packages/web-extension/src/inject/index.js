@@ -3,7 +3,7 @@ import { sendMessage } from '@carbon/devtools-utilities/src/sendMessage';
 import {
   initGrid,
   initInventory,
-  initTooltip,
+  //initTooltip,
   initShortcuts,
   injectHighlights,
   initBreakpointLabel,
@@ -12,7 +12,7 @@ import {
 if (!window.carbonDevtoolsInjected) {
   injectHighlights();
   initGrid();
-  initTooltip();
+  //initTooltip();
   initInventory();
   initShortcuts();
   initBreakpointLabel();
