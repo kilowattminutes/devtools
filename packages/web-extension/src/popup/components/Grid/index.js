@@ -59,7 +59,6 @@ function Grid({ disabled }) {
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
                 changes['toggleBookworm'] = e;
-                setToggleGrids(changes);
                 gaConfigurationEvent('toggle-bookworm', 'global', e);
               }}
             />
@@ -81,7 +80,6 @@ function Grid({ disabled }) {
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
                 changes['togglePotato'] = e;
-                setToggleGrids(changes);
                 gaConfigurationEvent('toggle-potato', 'global', e);
               }}
             />
@@ -103,7 +101,6 @@ function Grid({ disabled }) {
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
                 changes['toggleSarge'] = e;
-                setToggleGrids(changes);
                 gaConfigurationEvent('toggle-sarge', 'global', e);
               }}
             />
@@ -125,7 +122,6 @@ function Grid({ disabled }) {
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
                 changes['toggleSlink'] = e;
-                setToggleGrids(changes);
                 gaConfigurationEvent('toggle-slink', 'global', e);
               }}
             />
@@ -147,7 +143,6 @@ function Grid({ disabled }) {
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
                 changes['toggleBullseye'] = e;
-                setToggleGrids(changes);
                 gaConfigurationEvent('toggle-bullseye', 'global', e);
               }}
             />
@@ -169,7 +164,6 @@ function Grid({ disabled }) {
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
                 changes['toggleBuster'] = e;
-                setToggleGrids(changes);
                 gaConfigurationEvent('toggle-buster', 'global', e);
               }}
             />
