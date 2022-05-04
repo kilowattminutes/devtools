@@ -16,35 +16,75 @@ const themeList = [...Object.keys(themes), 'system'];
 let lastTheme = '';
 let lastGridVersion = '';
 let _gridOverlay;
+let gridOptions;
+let gridStyle = 'Potato';
 
 function initGrid() {
-  /* eslint-disable */
-  _gridOverlay = new GridOverlay({
-    overlayVisible: false,
-    maxWidth: 1440,
-    controlPosition: 'fixed',
-    controlBottom: '0px',
-    controlRight: '0px',
-    controlOpacity: 0.6,
-    controlPadding: 8,
-    cols: 12,
-    extraLeftRightGutter: 8,
-    gridGutter: 8,
-    adaptive: [
-      {
-        mediaQuery: '(max-width: 700px)',
-        cols: 2,
-        gridGutter: 8,
-        extraLeftRightGutter: 8,
-      },
-      {
-        mediaQuery: '(min-width: 1025px)',
+  switch (gridStyle) {
+    case 'Bookworm':
+    case 'Slink':
+      gridOptions = {
+        overlayVisible: false,
+        maxWidth: 2400,
+        controlPosition: 'fixed',
+        controlBottom: '0px',
+        controlRight: '0px',
+        controlOpacity: 0.6,
+        controlPadding: 8,
         cols: 12,
+        extraLeftRightGutter: 8,
         gridGutter: 8,
-        extraLeftRightGutter: 48,
-      },
-    ],
-  });
+        adaptive: [
+          {
+            mediaQuery: '(max-width: 700px)',
+            cols: 2,
+            gridGutter: 8,
+            extraLeftRightGutter: 8,
+          },
+          {
+            mediaQuery: '(min-width: 1025px)',
+            cols: 12,
+            gridGutter: 8,
+            extraLeftRightGutter: 8,
+          },
+        ],
+      };
+      break;
+    case 'Buster':
+    case 'Potato':
+    case 'Bullseye':
+    case 'Sarge':
+      gridOptions = {
+        overlayVisible: false,
+        maxWidth: 1440,
+        controlPosition: 'fixed',
+        controlBottom: '0px',
+        controlRight: '0px',
+        controlOpacity: 0.6,
+        controlPadding: 8,
+        cols: 12,
+        extraLeftRightGutter: 8,
+        gridGutter: 8,
+        adaptive: [
+          {
+            mediaQuery: '(max-width: 700px)',
+            cols: 2,
+            gridGutter: 8,
+            extraLeftRightGutter: 8,
+          },
+          {
+            mediaQuery: '(min-width: 1025px)',
+            cols: 12,
+            gridGutter: 8,
+            extraLeftRightGutter: 48,
+          },
+        ],
+      };
+      break;
+  }
+
+  /* eslint-disable */
+  _gridOverlay = new GridOverlay(gridOptions);
 
   // updates if storage changes
   //manageGlobals();
