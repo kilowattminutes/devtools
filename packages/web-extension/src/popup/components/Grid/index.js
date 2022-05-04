@@ -54,13 +54,13 @@ function Grid({ disabled }) {
               size="sm"
               className={`${prefix}--popup-main__section-toggle`}
               disabled={disabled}
-              id="toggle2xGrid"
-              toggled={toggleGrids['toggle2xGrid']}
+              id="toggleBookworm"
+              toggled={toggleGrids['toggleBookworm']}
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
-                changes['toggle2xGrid'] = e;
+                changes['toggleBookworm'] = e;
                 setToggleGrids(changes);
-                gaConfigurationEvent('2x-grid-change', 'global', e);
+                gaConfigurationEvent('toggle-bookworm', 'global', e);
               }}
             />
           </div>
@@ -76,13 +76,13 @@ function Grid({ disabled }) {
               size="sm"
               className={`${prefix}--popup-main__section-toggle`}
               disabled={disabled}
-              id="toggle2xGrid"
-              toggled={toggleGrids['toggle2xGrid']}
+              id="togglePotato"
+              toggled={toggleGrids['togglePotato']}
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
-                changes['toggle2xGrid'] = e;
+                changes['togglePotato'] = e;
                 setToggleGrids(changes);
-                gaConfigurationEvent('2x-grid-change', 'global', e);
+                gaConfigurationEvent('toggle-potato', 'global', e);
               }}
             />
           </div>
@@ -98,13 +98,13 @@ function Grid({ disabled }) {
               size="sm"
               className={`${prefix}--popup-main__section-toggle`}
               disabled={disabled}
-              id="toggle2xGrid"
-              toggled={toggleGrids['toggle2xGrid']}
+              id="toggleSarge"
+              toggled={toggleGrids['toggleSarge']}
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
-                changes['toggle2xGrid'] = e;
+                changes['toggleSarge'] = e;
                 setToggleGrids(changes);
-                gaConfigurationEvent('2x-grid-change', 'global', e);
+                gaConfigurationEvent('toggle-sarge', 'global', e);
               }}
             />
           </div>
@@ -120,13 +120,13 @@ function Grid({ disabled }) {
               size="sm"
               className={`${prefix}--popup-main__section-toggle`}
               disabled={disabled}
-              id="toggle2xGrid"
-              toggled={toggleGrids['toggle2xGrid']}
+              id="toggleSlink"
+              toggled={toggleGrids['toggleSlink']}
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
-                changes['toggle2xGrid'] = e;
+                changes['toggleSlink'] = e;
                 setToggleGrids(changes);
-                gaConfigurationEvent('2x-grid-change', 'global', e);
+                gaConfigurationEvent('toggle-slink', 'global', e);
               }}
             />
           </div>
@@ -142,13 +142,13 @@ function Grid({ disabled }) {
               size="sm"
               className={`${prefix}--popup-main__section-toggle`}
               disabled={disabled}
-              id="toggle2xGrid"
-              toggled={toggleGrids['toggle2xGrid']}
+              id="toggleBullseye"
+              toggled={toggleGrids['toggleBullseye']}
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
-                changes['toggle2xGrid'] = e;
+                changes['toggleBullseye'] = e;
                 setToggleGrids(changes);
-                gaConfigurationEvent('2x-grid-change', 'global', e);
+                gaConfigurationEvent('toggle-bullseye', 'global', e);
               }}
             />
           </div>
@@ -164,13 +164,13 @@ function Grid({ disabled }) {
               size="sm"
               className={`${prefix}--popup-main__section-toggle`}
               disabled={disabled}
-              id="toggle2xGrid"
-              toggled={toggleGrids['toggle2xGrid']}
+              id="toggleBuster"
+              toggled={toggleGrids['toggleBuster']}
               onToggle={(e) => {
                 const changes = { ...toggleGrids };
-                changes['toggle2xGrid'] = e;
+                changes['toggleBuster'] = e;
                 setToggleGrids(changes);
-                gaConfigurationEvent('2x-grid-change', 'global', e);
+                gaConfigurationEvent('toggle-buster', 'global', e);
               }}
             />
           </div>

@@ -15,7 +15,13 @@ defaults.popup = {
 };
 
 defaults.grid = {
-  toggle2xGrid: true,
+  toggle2xGrid: false,
+  togglePotato: true,
+  toggleBookworm: false,
+  toggleSarge: false,
+  toggleSlink: false,
+  toggleBullseye: false,
+  toggleBuster: false,
 };
 
 defaults.toggle2x = {
