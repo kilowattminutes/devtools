@@ -11,9 +11,9 @@ injectGrid();
 
 chrome.runtime.onMessage.addListener((data) => {
   if (data.type === 'gridStyle') {
-    alert('got message gridStyle change');
+    alert('gridStyle changed to ' + data.gridStyle);
   }
   if (data.type === 'gridSwitch') {
-    alert('got message gridSwitch' + data.id);
+    alert('gridSwitch' + data.id + ' to ' + data.state);
   }
 });
