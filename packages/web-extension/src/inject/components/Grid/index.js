@@ -21,14 +21,19 @@ let gridOptions;
 
 function initGrid() {}
 
-function switchGrid(msg) {
-  if (msg.gridStyle) {
-    if (_gridOverlay !== null) {
-      _gridOverlay.destroy();
-      alert('destroyed');
-    }
+function destroyGrid() {
+  alert('destroy');
+  if (_gridOverlay !== null) {
+    _gridOverlay.destroy();
+    alert('destroyed');
+  }
+}
 
-    switch (msg.gridStyle) {
+function switchGrid(gridStyle) {
+  if (gridStyle) {
+    destroyGrid();
+
+    switch (gridStyle) {
       case 'Bookworm':
       case 'Slink':
         gridOptions = {
@@ -92,10 +97,10 @@ function switchGrid(msg) {
     }
 
     alert('new');
-  }
 
-  /* eslint-disable */
-  _gridOverlay = new GridOverlay(gridOptions);
+    /* eslint-disable */
+    _gridOverlay = new GridOverlay(gridOptions);
+  }
 
   // updates if storage changes
   //manageGlobals();
@@ -167,4 +172,4 @@ function manageGlobals() {
   }
 }
 
-export { initGrid, switchGrid };
+export { initGrid, switchGrid, destroyGrid };
