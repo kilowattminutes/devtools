@@ -20,7 +20,11 @@ let lastGridVersion = '';
 let _gridOverlay = null;
 let gridOptions;
 
-function initGrid() {}
+function initGrid() {
+  if (defaults.global.gridoverlay) {
+    switchGrid(defaults.gridStyle);
+  }
+}
 
 function destroyGrid() {
   //alert('destroy');
