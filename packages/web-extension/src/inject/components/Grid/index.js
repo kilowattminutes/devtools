@@ -11,6 +11,7 @@ import GridOverlay from 'grid-overlay/dist/grid-overlay.min.js';
 
 const { prefix } = settings;
 const html = document.querySelector('html');
+const body = document.body;
 const gridVersionsList = Object.keys(gridVersions);
 const themeList = [...Object.keys(themes), 'system'];
 
@@ -22,16 +23,18 @@ let gridOptions;
 function initGrid() {}
 
 function destroyGrid() {
-  alert('destroy');
+  //alert('destroy');
   if (_gridOverlay !== null) {
     _gridOverlay.destroy();
-    alert('destroyed');
+    body.classList.add('grid-removed');
+    //alert('destroyed');
   }
 }
 
 function switchGrid(gridStyle) {
   if (gridStyle) {
     destroyGrid();
+    body.classList.add('grid-added');
 
     switch (gridStyle) {
       case 'Bookworm':
@@ -96,7 +99,7 @@ function switchGrid(gridStyle) {
         break;
     }
 
-    alert('new');
+    //alert('new');
 
     /* eslint-disable */
     _gridOverlay = new GridOverlay(gridOptions);
