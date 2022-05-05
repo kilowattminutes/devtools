@@ -8,3 +8,12 @@ setClientId();
 setBadge();
 validatePage();
 injectGrid();
+
+chrome.runtime.onMessage.addListener((data) => {
+  if (data.type === 'gridStyle') {
+    alert('got message gridStyle change');
+  }
+  if (data.type === 'gridSwitch') {
+    alert('got message gridSwitch' + data.id);
+  }
+});

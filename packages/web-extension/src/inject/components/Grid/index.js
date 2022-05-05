@@ -7,6 +7,7 @@ import { defaults } from '../../../globals/defaults';
 import { showMiniUnitGrid, hideMiniUnitGrid } from './mini-unit';
 import { themes } from '@carbon/themes';
 import GridOverlay from 'grid-overlay/dist/grid-overlay.min.js';
+//import { getMessage } from '@carbon/devtools-utilities/src/getMessage';
 
 const { prefix } = settings;
 const html = document.querySelector('html');
@@ -15,72 +16,82 @@ const themeList = [...Object.keys(themes), 'system'];
 
 let lastTheme = '';
 let lastGridVersion = '';
-let _gridOverlay;
+let _gridOverlay = null;
 let gridOptions;
-let gridStyle = 'Potato';
 
-function initGrid() {
-  switch (gridStyle) {
-    case 'Bookworm':
-    case 'Slink':
-      gridOptions = {
-        overlayVisible: true,
-        maxWidth: 2400,
-        controlPosition: 'fixed',
-        controlBottom: '0px',
-        controlRight: '0px',
-        controlOpacity: 0.6,
-        controlPadding: 8,
-        cols: 12,
-        extraLeftRightGutter: 8,
-        gridGutter: 8,
-        adaptive: [
-          {
-            mediaQuery: '(max-width: 700px)',
-            cols: 2,
-            gridGutter: 8,
-            extraLeftRightGutter: 8,
-          },
-          {
-            mediaQuery: '(min-width: 1025px)',
-            cols: 12,
-            gridGutter: 8,
-            extraLeftRightGutter: 8,
-          },
-        ],
-      };
-      break;
-    case 'Buster':
-    case 'Potato':
-    case 'Bullseye':
-    case 'Sarge':
-      gridOptions = {
-        overlayVisible: true,
-        maxWidth: 1440,
-        controlPosition: 'fixed',
-        controlBottom: '0px',
-        controlRight: '0px',
-        controlOpacity: 0.6,
-        controlPadding: 8,
-        cols: 12,
-        extraLeftRightGutter: 8,
-        gridGutter: 8,
-        adaptive: [
-          {
-            mediaQuery: '(max-width: 700px)',
-            cols: 2,
-            gridGutter: 8,
-            extraLeftRightGutter: 8,
-          },
-          {
-            mediaQuery: '(min-width: 1025px)',
-            cols: 12,
-            gridGutter: 8,
-            extraLeftRightGutter: 48,
-          },
-        ],
-      };
-      break;
+function initGrid() {}
+
+function switchGrid(msg) {
+  if (msg.gridStyle) {
+    if (_gridOverlay !== null) {
+      _gridOverlay.destroy();
+      alert('destroyed');
+    }
+
+    switch (msg.gridStyle) {
+      case 'Bookworm':
+      case 'Slink':
+        gridOptions = {
+          overlayVisible: true,
+          maxWidth: 2400,
+          controlPosition: 'fixed',
+          controlBottom: '0px',
+          controlRight: '0px',
+          controlOpacity: 0.6,
+          controlPadding: 8,
+          cols: 12,
+          extraLeftRightGutter: 8,
+          gridGutter: 8,
+          adaptive: [
+            {
+              mediaQuery: '(max-width: 700px)',
+              cols: 2,
+              gridGutter: 8,
+              extraLeftRightGutter: 8,
+            },
+            {
+              mediaQuery: '(min-width: 1025px)',
+              cols: 12,
+              gridGutter: 8,
+              extraLeftRightGutter: 8,
+            },
+          ],
+        };
+        break;
+      case 'Buster':
+      case 'Potato':
+      case 'Bullseye':
+      case 'Sarge':
+        gridOptions = {
+          overlayVisible: true,
+          maxWidth: 1440,
+          controlPosition: 'fixed',
+          controlBottom: '0px',
+          controlRight: '0px',
+          controlOpacity: 0.6,
+          controlPadding: 8,
+          cols: 12,
+          extraLeftRightGutter: 8,
+          gridGutter: 8,
+          adaptive: [
+            {
+              mediaQuery: '(max-width: 700px)',
+              cols: 2,
+              gridGutter: 8,
+              extraLeftRightGutter: 8,
+            },
+            {
+              mediaQuery: '(min-width: 1025px)',
+              cols: 12,
+              gridGutter: 8,
+              extraLeftRightGutter: 48,
+            },
+          ],
+        };
+        break;
+    }
+
+    alert('new');
   }
 
   /* eslint-disable */
@@ -156,4 +167,4 @@ function manageGlobals() {
   }
 }
 
-export { initGrid };
+export { initGrid, switchGrid };

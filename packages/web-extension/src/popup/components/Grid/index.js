@@ -7,6 +7,7 @@ import { setStorage } from '@carbon/devtools-utilities/src/setStorage';
 import { getStorage } from '@carbon/devtools-utilities/src/getStorage';
 //import { gaConfigurationEvent } from '@carbon/devtools-utilities/src/ga';
 import { defaults } from '../../../globals/defaults';
+//import { sendMessage } from '@carbon/devtools-utilities/src/sendMessage';
 
 //const { prefix } = settings;
 
@@ -38,6 +39,7 @@ function Grid() {
       defaultSelected={toggleGridStyle}
       onChange={(val) => {
         setToggleGridStyle(val);
+        chrome.runtime.sendMessage({ type: 'gridStyle', gridStyle: val }); //sendMessage({ gridStyle: val });
       }}
     >
       <RadioButton labelText="Potato" value="Potato" id="Potato" />
