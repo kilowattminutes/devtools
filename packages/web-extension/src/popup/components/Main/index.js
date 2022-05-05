@@ -186,7 +186,7 @@ function Main({ initialMsg, _inventoryData, _panelControls }) {
                     chrome.runtime.sendMessage({
                       type: 'gridSwitch',
                       id: id,
-                      state: globalToggleStates[id],
+                      state: changes[id],
                     });
                     gaConfigurationEvent('global-change', codename, e);
                   }}
